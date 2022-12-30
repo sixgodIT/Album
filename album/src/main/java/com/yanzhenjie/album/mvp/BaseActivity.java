@@ -86,7 +86,7 @@ public class BaseActivity extends AppCompatActivity implements Bye {
     private static List<String> getDeniedPermissions(Context context, String... permissions) {
         List<String> deniedList = new ArrayList<>(2);
         for (String permission : permissions) {
-            if (PermissionChecker.checkSelfPermission(context, permission) != PermissionChecker.PERMISSION_GRANTED) {
+            if (context.checkSelfPermission(permission) == PackageManager.PERMISSION_GRANTED) {
                 deniedList.add(permission);
             }
         }
